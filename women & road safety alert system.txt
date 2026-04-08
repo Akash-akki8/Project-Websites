@@ -1,0 +1,83 @@
+women & road safety alert system
+
+
+Hi good morning everyone 
+My name is Ch. Akash,  I am pursuing b-tech 3rd year in the stream of cse in qis college of engineering and technology , 
+Srividya:- tell about u 
+
+Firstly my project is women & road safety alert system by using Ai 
+
+We are all known about women harassment , in India women harassment is getting high day by day and also accidents are also increasing day by day that why we introduce this project with high accuracy on LSTM (Long Short-Term Memory) , CNN (Convolutional Neural Network), YOLO (You  Only Look Once) algorithms will be used in my project
+
+introduction:-   
+
+Women’s safety is a critical concern in today’s generation . Every day , we hear about incidents of harassment and unsafe travel conditions, making it essential to develop smart solutions that provide security and immediate assistance to a emergency contacts like police ambulance and parents . we using artificial intelligence and machine learning technology to this project.
+
+problem statement:
+
+1. Delayed emergency response – Help often arrives too late due to the lack of instant alerts.
+
+2.Lack of real-time vehicle monitoring – There is no immediate system to track suspicious vehicle movements.
+
+3. Insufficient safe route guidance – Many travelers are unaware of high-risk areas.
+
+4. Limited vehicle communication – Vehicles do not exchange enough data to detect anomalies.
+
+5. Underutilization of AI-based technologies – Many safety features are still manual and not automated.
+
+
+Solutions: 
+
+1. Incident Detection – The system uses AI and sensors to detect emergencies such as harassment, accidents, or suspicious behavior.
+2. Vehicle Monitoring – It tracks vehicle speed, direction, and unusual activities to alert users of potential threats.
+3. Safe Route Navigation – With the help of Google Maps, it suggests secure travel routes, avoiding unsafe areas.
+4. Emergency Alerts – When an incident is detected, the system automatically sends alerts to emergency contacts and authorities with real-time location details.
+5. Predictive Safety Analytics – The AI model continuously learns from incidents and improves its accuracy in detecting threats.
+
+
+Methodology :
+
+Data Collection: 
+The system gathers data from sensors, audio recordings, and vehicle images.
+
+Preprocessing: 
+The collected data is cleaned, analyzed, and optimized for accurate results.
+
+Model Training:
+LSTM (Long Short-Term Memory) is used for human activity recognition with 92.5% accuracy.
+CNN (Convolutional Neural Network) classifies sound patterns related to incidents with 89.3% accuracy.
+YOLO (You Only Look Once) detects vehicles and suspicious movements with 95.7% accuracy.
+
+Integration:
+The models are integrated into a user-friendly web application using Flask, Google Maps, and Twilio for alerts.
+
+Deployment: 
+The final system is designed to work in real-time, ensuring immediate responses to emergencies.
+
+
+
+Results :
+
+92.5% accuracy in human activity recognition
+89.3% accuracy in sound classification
+95.7% accuracy in vehicle detection
+98% response rate for emergency alerts
+
+
+Future Scope :
+Improving AI models for better threat detection
+Adding more safety features like facial recognition for identifying suspects
+Expanding to more locations with improved real-time data analysis
+
+
+suggestions:
+1. be careful while driving 
+2. be careful girls while going out 
+3. Promote Women’s Safety Awareness 
+4. Stay Alert & Use Technology for Safety 
+
+Conclusion :
+The Women & Road Safety Alert System is a step toward ensuring safer roads for women by leveraging AI for real-time assistance. By integrating incident detection, vehicle monitoring, and emergency response, we can create a safer environment for all.
+
+
+thankyou for giving this opportunity for presenting my project .

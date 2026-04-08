@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url(../images/background.webp) no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(33, 2, 2, 0.5); /* Adjust opacity (0.5 = 50% lighter) */
+    z-index: -1;
+}
+
+
+header {
+    background: black;
+    color: white;
+    padding: 15px;
+   
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.status, .vehicle-monitor, .map-container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15%;
+    background: transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: aliceblue;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#map {
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    color: aliceblue;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+button {
+    background: #28a745;
+    color: transparent;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    color: aliceblue;
+    font-size: larger;
+    font-weight: bolder;
+}

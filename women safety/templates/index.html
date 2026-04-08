@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women & Road Safety Alert System</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Women & Road Safety Alert System</h1>
+    </header>
+
+    <section class="status">
+        <h2>🔴 Live Incident Detection</h2>
+        <div id="incident-status">Checking...</div>
+    </section>
+
+    <section class="vehicle-monitor">
+        <h2>🚗 Vehicle Monitoring</h2>
+        <p>Speed: <span id="vehicle-speed">0 km/h</span></p>
+        <p>Direction: <span id="vehicle-direction">N/A</span></p>
+    </section>
+
+    <section class="map-container">
+        <h2>📍 Safe Route Navigation</h2>
+        <div id="map"></div>
+        <button onclick="shareLocation()">📡 Share Live Location</button>
+    </section>
+
+    <script>
+        // Function to update incident status
+        function updateIncidentStatus() {
+            fetch('/incident_status', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ accident: false, harassment: false })  // Replace with sensor data
+            })
+            .then(response => response.json())
+            .then(data => {
+                let statusDiv = document.getElementById("incident-status");
+                if (data.status === "safe") {
+                    statusDiv.style.color = "white";
+                    statusDiv.innerHTML = "✅ Safe";
+                } else {
+                    statusDiv.style.color = "red";
+                    statusDiv.innerHTML = "🚨 Emergency! Alert Sent!";
+                }
+            });
+        }
+
+        // Function to update vehicle speed & direction
+        function updateVehicleInfo() {
+            fetch('/vehicle_status')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("vehicle-speed").innerText = data.speed;
+                document.getElementById("vehicle-direction").innerText = data.direction;
+            });
+        }
+
+        // Google Maps Initialization
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 37.7749, lng: -122.4194 },
+                zoom: 14
+            });
+
+            navigator.geolocation.getCurrentPosition(position => {
+                var userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                map.setCenter(userLocation);
+                new google.maps.Marker({ position: userLocation, map: map });
+            });
+        }
+
+        // Function to share live location
+        function shareLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    let latitude = position.coords.latitude;
+                    let longitude = position.coords.longitude;
+                    fetch('/send_alert', { 
+                        method: 'POST', 
+                        body: JSON.stringify({ latitude, longitude }),
+                        headers: { "Content-Type": "application/json" }
+                    });
+                    alert("📡 Location shared with emergency contacts!");
+                });
+            } else {
+                alert("Geolocation not supported.");
+            }
+        }
+
+        // Auto-update incident status & vehicle info every 5 seconds
+        setInterval(updateIncidentStatus, 5000);
+        setInterval(updateVehicleInfo, 5000);
+    </script>
+
+</body>
+</html>
